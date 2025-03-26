@@ -1,8 +1,14 @@
-import { useState } from "react";
+
+import Tasks from './components/Tasks';
+import AddTask from './components/AddTask';
 
 function App(){
   return (
-    <h1>Olá, Mundo!</h1>
+    <div>
+      <h1 className="">Gerenciador de Tarefas</h1>
+      <Tasks /> 
+      <AddTask />
+    </div>
   )
 }
 
