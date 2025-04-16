@@ -28,13 +28,19 @@ function App(){
 function onTaskClick(taskId) {
   const newTasks = tasks.map( task => {
     if (task.id === taskId) {
-      return {... task, isCompleted: !task.isCompleted};
+      return { ...task, isCompleted: !task.isCompleted };
     }
 
     return task;
   });
 
   setTasks(newTasks);
+}
+
+function onDeleteClick(taskId) {
+  const newTasks = tasks.filter((task) => task.id !== taskId)
+  setTasks(newTasks);
+    
 }
 
 
@@ -47,7 +53,8 @@ function onTaskClick(taskId) {
         
         <AddTask />
 
-        <Tasks tasks ={tasks} onTaskClick={onTaskClick}/>
+        <Tasks tasks ={tasks} onTaskClick={onTaskClick} onDeleteClick={onDeleteClick}
+        />
         
       </div>
     </div>
