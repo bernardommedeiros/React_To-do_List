@@ -9,10 +9,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <h1>Tarefa não encontrada!</h1>,
   },
   {
-    path: "/description",
+    path: "/task",
     element: <TaskPage />,
+    errorElement: <h1>Tarefa não encontrada!</h1>,
   },
 ]
 
