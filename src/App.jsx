@@ -1,31 +1,15 @@
 import AddTask from "./components/AddTask"
 import Tasks from "./components/Tasks"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {v4} from 'uuid'
+import Title from './components/Title'
 
 function App(){
   // prop
-  const [tasks, setTasks] = useState([{
-    id: 1,
-    title: "estudar react",
-    description: " aprender o framework JS ",
-    isCompleted: false
-  },
-  {
-    id: 2,
-    title: "estudar django",
-    description: " aprender o framework PY ",
-    isCompleted: false
-  },
-
-  {
-    id: 3,
-    title: "estudar spring",
-    description: " aprender o framework JAVA ",
-    isCompleted: false
-  }
-]);
-
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []
+  // caso não haja nada no localStorage é passado uma lista vazia
+);
+ 
 function onTaskSubmit(title, desc) {
   const newTask = {
     // gera id aleatorio
@@ -38,6 +22,44 @@ function onTaskSubmit(title, desc) {
   setTasks([ ...tasks, newTask])
 
 }
+
+
+
+
+useEffect(() => {
+  localStorage.setItem("tasks", JSON.stringify(tasks))
+}, [tasks])
+
+
+
+
+// ROTA FICTICIA, FUNCIONAL MAS UTILIZADA COMO EXEMPLO -> SERVE PARA PERSISTIR OS DADOS NO BANCO DE DADOS DO PROJETO
+
+// executa a função sempre que o valor presente na lista for alterado
+// quando tasks for alterado, ocorrerá o useEffects
+// efeito quando algo for alterado
+// consumo da api JSONPlaceholder -> pegar os dados e armazená-los no state
+
+
+ /* 
+ caso habilite, a api será consumida
+
+ useEffect(() => {
+  async function fetchTasks(){
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10', {
+      method: 'GET'
+    });
+    
+    const data = await response.json()
+    setTasks(data)
+
+  }
+
+  
+   fetchTasks(); 
+}, []); */
+
+
 
 
 
@@ -62,18 +84,17 @@ function onTaskDelete(taskId) {
 
   return (
     // w e h screen cobre toda a largura da tela
-    <div className='w-screen h-screen bg-slate-600 flex justify-center p-6'>
-
-      <div className="w-[500px] space-y-4">
-        <h1 className="text-3xl text-slate-100 font-bold text-center" >Gerenciador de Tarefas</h1>
-        
-        <AddTask onTaskSubmit={onTaskSubmit}/>
-
-        <Tasks tasks = {tasks} onTaskClick ={onTaskClick} onTaskDelete = {onTaskDelete}
-        />
-        
+      <div className='min-h-screen w-screen bg-slate-600 flex justify-center p-6'>
+        <div className="w-[500px] space-y-4">
+          <Title>Gerenciador de Tarefas</Title>
+      
+          <AddTask onTaskSubmit={onTaskSubmit}/>
+          <Tasks tasks = {tasks} onTaskClick ={onTaskClick} onTaskDelete = {onTaskDelete}
+          />
+      
+        </div>
       </div>
-    </div>
+   
   );
 }
 
