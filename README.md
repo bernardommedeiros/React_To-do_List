@@ -5,7 +5,7 @@
   <img width="50" />
 
 ## Descrição
-Aplicação para registro de atividades pessoais com persistência interna
+Aplicação para registro de atividades pessoais com persistência em Local Storage.
 
 ## Objetivos
 Noções básicas do framework **React**, como a utilização de hooks, criação de rotas para a navegação no site, componentização, consumo de APIs entre outros conceitos iniciais que englobam a tecnologia

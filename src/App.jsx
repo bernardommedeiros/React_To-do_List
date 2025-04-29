@@ -84,7 +84,7 @@ function onTaskDelete(taskId) {
 
   return (
     // w e h screen cobre toda a largura da tela
-      <div className='min-h-screen w-screen bg-slate-600 flex justify-center p-6'>
+      <div className='min-h-screen w-screen bg-pink-500 flex justify-center p-6'>
         <div className="w-[500px] space-y-4">
           <Title>Gerenciador de Tarefas</Title>
       

@@ -7,7 +7,7 @@ function AddTasks({onTaskSubmit}){
     const [desc, setDesc] = useState("");
 
     return (
-        <div className=" bg-slate-200 space-y rounded-md p-6 shadow flex flex-col gap-3">
+        <div className=" bg-pink-200 space-y rounded-md p-6 shadow flex flex-col gap-3">
 
 
         
@@ -33,7 +33,7 @@ function AddTasks({onTaskSubmit}){
             setTitle("");
             setDesc("");
 
-        }} className="bg-slate-500 text-white font-medium px-4 py-2 rounded-md"> Adicionar </button>
+        }} className="bg-pink-300 text-white font-medium px-4 py-2 rounded-md"> Adicionar </button>
 
             
         </div>

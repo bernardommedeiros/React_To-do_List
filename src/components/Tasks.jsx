@@ -15,13 +15,13 @@ function Tasks({ tasks, onTaskClick, onTaskDelete }){
     }
 
     return (
-        <ul className="space-y-4 p-6 bg-slate-200 rounded-md shadow">
+        <ul className="space-y-4 p-6 bg-pink-200 rounded-md shadow">
             {/* map recebe cada task da interação */}
  
             {tasks.map((task) => (
             <li key={task.id} className="flex gap-2">
             <button onClick={() => onTaskClick(task.id)} 
-            className= {`bg-slate-400 w-full text-left text-white flex p-2 rounded-md
+            className= {`bg-pink-400 w-full text-left text-white flex p-2 rounded-md
             ${task.isCompleted && "line-through"}`}>
                 {task.isCompleted && <CheckIcon />}
                 {task.title}
